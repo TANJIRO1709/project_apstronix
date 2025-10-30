@@ -39,25 +39,26 @@ const Navbar: React.FC = () => {
   return (
     <>
       {/* Navbar */}
-      <div className="fixed top-0 left-0 w-full z-50 flex justify-center">
+      <div className="fixed top-0 left-0 w-full z-50 flex justify-center py-6">
         <motion.nav
           className="bg-[#b5a1e02f] w-[98%] sm:w-[95%] max-w-[1200px] backdrop-blur-sm shadow-xl h-[60px] md:h-[70px] flex justify-between items-center rounded-[34px] xs:rounded-[40px] sm:rounded-[62px] px-2 xs:px-4 md:px-8 ring-1 ring-[#ffffff75]"
           initial="hidden"
           animate="visible"
           variants={heroVariants}
         >
-          {/* Home link */}
-          <Link href="/" className="hoverable text-xl font-semibold text-[#ffffff]">
-            Home
+          {/* Logo / Home link (place logo at public/logo.png or update the src) */}
+          <Link href="/" className="flex items-center gap-3 hoverable text-white">
+            <img src="/Hero_Assets/Logo.png" alt="Logo" className="h-7 w-auto sm:h-8" />
+            <span className="sr-only">Home</span>
           </Link>
           {/* Desktop Nav */}
-          <div className="hidden md:flex flex-1 justify-around items-center gap-6 md:gap-8 px-2 md:px-8">
+          <div className="hidden md:flex flex-1 justify-around items-center gap-4 md:gap-6 px-2 md:px-6">
             {navItems.map((item) =>
               item.path.startsWith("#") ? (
                 <a
                   key={item.path}
                   onClick={() => handleSmoothScroll(item.path)}
-                  className="cursor-pointer text-base xs:text-lg lg:text-xl text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable px-1"
+                  className="cursor-pointer text-sm sm:text-base md:text-lg text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-105 hoverable px-1"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   {item.label}
@@ -66,7 +67,7 @@ const Navbar: React.FC = () => {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className="text-base xs:text-lg lg:text-xl text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable px-1"
+                  className="text-sm sm:text-base md:text-lg text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-105 hoverable px-1"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   {item.label}
@@ -119,7 +120,7 @@ const Navbar: React.FC = () => {
                   toggleMenu();
                   handleSmoothScroll(item.path);
                 }}
-                className="text-base xs:text-lg text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable w-full text-center cursor-pointer"
+                className="text-sm sm:text-base text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-105 hoverable w-full text-center cursor-pointer"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 {item.label}
@@ -129,7 +130,7 @@ const Navbar: React.FC = () => {
                 key={item.path}
                 href={item.path}
                 onClick={toggleMenu}
-                className="text-base xs:text-lg text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-110 hoverable w-full text-center"
+                className="text-sm sm:text-base text-[#ffffff] font-light hover:text-purple-300 transition-all duration-300 transform hover:scale-105 hoverable w-full text-center"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 {item.label}

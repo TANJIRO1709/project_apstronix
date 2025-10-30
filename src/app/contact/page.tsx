@@ -38,6 +38,71 @@ export default function ContactUs() {
 
   return (
 
+    <div className="flex-grow py-10 px-2 sm:py-12 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8">
+          <h1 className="pt-12 sm:pt-16 text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8">Contact Us</h1>
+        </h1>
+        <div className="bg-gray-900 rounded-lg p-4 sm:p-8 border border-gray-800 hover:border-gray-700 transition-all duration-300 min-h-[480px] flex flex-col justify-center">
+          <form ref={formRef} onSubmit={handleSubmit}>
+            <div className="mb-4 sm:mb-6">
+              <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-750 text-white transition-all duration-200"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div className="mb-4 sm:mb-6">
+              <label htmlFor="contact" className="block text-sm font-medium mb-2">Contact Number</label>
+              <input
+                type="tel"
+                id="contact"
+                name="contact"
+                value={formData.contact}
+                onChange={handleChange}
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-750 text-white transition-all duration-200"
+                placeholder="Enter your contact number"
+                required
+              />
+            </div>
+            <div className="mb-4 sm:mb-6">
+              <label htmlFor="query" className="block text-sm font-medium mb-2">Your Query</label>
+              <textarea
+                id="query"
+                name="query"
+                value={formData.query}
+                onChange={handleChange}
+                rows={4}
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-750 text-white resize-none transition-all duration-200"
+                placeholder="Enter your query"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-700 hover:shadow-lg text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+        <div className="text-center mb-6 sm:mb-8 py-4 sm:py-6">
+          <p className="text-gray-300 mb-3 sm:mb-4 text-base sm:text-lg">
+            Best way to contact us is through our support channel. Visit link below and submit the ticket.
+          </p>
+          <a
+            href="https://support.example.com/submit-ticket"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 underline text-base sm:text-lg"
+
+
 
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex flex-col">
       <div className="flex-grow py-10 px-2 sm:py-12 sm:px-6 lg:px-8">
@@ -49,6 +114,7 @@ export default function ContactUs() {
           {/* Contact Form Box */}
           <div
             className="bg-gray-900 rounded-lg p-4 sm:p-8 border border-gray-800 hover:border-gray-700 transition-all duration-300 min-h-[480px] flex flex-col justify-center"
+
           >
             <form ref={formRef} onSubmit={handleSubmit}>
               <div className="mb-4 sm:mb-6">
