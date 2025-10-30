@@ -37,7 +37,7 @@ export default function ContactUs() {
     <div className="flex-grow py-10 px-2 sm:py-12 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8">
-          Contact Us
+          <h1 className="pt-12 sm:pt-16 text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8">Contact Us</h1>
         </h1>
         <div className="bg-gray-900 rounded-lg p-4 sm:p-8 border border-gray-800 hover:border-gray-700 transition-all duration-300 min-h-[480px] flex flex-col justify-center">
           <form ref={formRef} onSubmit={handleSubmit}>
