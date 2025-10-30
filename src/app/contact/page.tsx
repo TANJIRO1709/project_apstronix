@@ -3,28 +3,31 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 export default function ContactUs() {
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     contact: '',
     query: ''
   });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!formRef.current) return;
+
     emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
       formRef.current,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
     ).then(() => {
       alert('Thank you for contacting us! We will get back to you soon.');
       setFormData({ name: '', contact: '', query: '' });
@@ -34,6 +37,7 @@ export default function ContactUs() {
   };
 
   return (
+
     <div className="flex-grow py-10 px-2 sm:py-12 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8">
@@ -97,9 +101,87 @@ export default function ContactUs() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-400 hover:text-blue-300 underline text-base sm:text-lg"
+
+
+
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex flex-col">
+      <div className="flex-grow py-10 px-2 sm:py-12 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8">
+            Contact Us
+          </h1>
+
+          {/* Contact Form Box */}
+          <div
+            className="bg-gray-900 rounded-lg p-4 sm:p-8 border border-gray-800 hover:border-gray-700 transition-all duration-300 min-h-[480px] flex flex-col justify-center"
+
           >
-            Submit a Support Ticket
-          </a>
+            <form ref={formRef} onSubmit={handleSubmit}>
+              <div className="mb-4 sm:mb-6">
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-750 text-white transition-all duration-200"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div className="mb-4 sm:mb-6">
+                <label htmlFor="contact" className="block text-sm font-medium mb-2">
+                  Contact Number
+                </label>
+                <input
+                  type="tel"
+                  id="contact"
+                  name="contact"
+                  value={formData.contact}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-750 text-white transition-all duration-200"
+                  placeholder="Enter your contact number"
+                  required
+                />
+              </div>
+
+              <div className="mb-4 sm:mb-6">
+                <label htmlFor="query" className="block text-sm font-medium mb-2">
+                  Your Query
+                </label>
+                <textarea
+                  id="query"
+                  name="query"
+                  value={formData.query}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-gray-750 text-white resize-none transition-all duration-200"
+                  placeholder="Enter your query"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 hover:shadow-lg text-white font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
+
+          {/* Support Channel Message */}
+          <div className="text-center mb-6 sm:mb-8 py-4 sm:py-6">
+            <p className="text-gray-300 mb-3 sm:mb-4 text-base sm:text-lg">
+              Best way to contact us is through our support channel. Visit link below and submit the ticket.
+            </p>
+          
+          </div>
+
         </div>
       </div>
       {/* Contact Information and Footer Box */}
@@ -118,7 +200,7 @@ export default function ContactUs() {
                 href="tel:+1234567890"
                 className="text-blue-400 hover:text-blue-300 text-base sm:text-lg transition-colors duration-200"
               >
-                +1 (234) 567-890
+                7008717365 / 8847834048
               </a>
             </div>
             <div className="flex flex-col justify-center items-start sm:ml-12 border-l border-gray-700 pl-6">
@@ -129,10 +211,10 @@ export default function ContactUs() {
                 Email Us
               </h3>
               <a
-                href="mailto:support@example.com"
+                href="mailto:purushotam.apstronics@gmail.com"
                 className="text-blue-400 hover:text-blue-300 text-base sm:text-lg transition-colors duration-200"
               >
-                support@example.com
+               purushotam.apstronics@gmail.com
               </a>
             </div>
           </div>

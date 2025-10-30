@@ -3,21 +3,27 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 export default function Careers() {
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement>(null);
   const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitting(true);
 
+    if (!formRef.current) {
+      alert('Form reference is not available.');
+      setSubmitting(false);
+      return;
+    }
+
     emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      process.env.NEXT_PUBLIC_EMAILJS_CAREER_TEMPLATE_ID,
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+      process.env.NEXT_PUBLIC_EMAILJS_CAREER_TEMPLATE_ID as string,
       formRef.current,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
     ).then(() => {
       alert('Thank you for applying! We will review your application and get back to you soon.');
-      formRef.current.reset();
+      formRef.current?.reset();
       setSubmitting(false);
     }).catch(() => {
       alert('Failed to send application. Please try again later.');
