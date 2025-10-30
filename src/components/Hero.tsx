@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Hero() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,12 +68,12 @@ function Hero() {
             >
               FEATURED COMPONENTS
             </a>
-            <a
-              onClick={() => handleMenuItemClick("Contact")}
-              className="block px-4 py-2 lg:text-lg text-sm transition duration-300 hover:text-[#0064E0] cursor-pointer"
-            >
-              CONTACT US
-            </a>
+           <Link
+  href="/contact"
+  className="block px-4 py-2 lg:text-lg text-sm transition duration-300 hover:text-[#0064E0]"
+>
+  CONTACT US
+</Link>
           </div>
 
           {/* Mobile Menu Button */}
