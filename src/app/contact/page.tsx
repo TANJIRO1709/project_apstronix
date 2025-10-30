@@ -3,28 +3,31 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 export default function ContactUs() {
-  const formRef = useRef();
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     contact: '',
     query: ''
   });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (!formRef.current) return;
+
     emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
       formRef.current,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
     ).then(() => {
       alert('Thank you for contacting us! We will get back to you soon.');
       setFormData({ name: '', contact: '', query: '' });
@@ -108,14 +111,7 @@ export default function ContactUs() {
             <p className="text-gray-300 mb-3 sm:mb-4 text-base sm:text-lg">
               Best way to contact us is through our support channel. Visit link below and submit the ticket.
             </p>
-            <a
-              href="https://support.example.com/submit-ticket"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 underline text-base sm:text-lg"
-            >
-              Submit a Support Ticket
-            </a>
+          
           </div>
         </div>
       </div>
@@ -138,7 +134,7 @@ export default function ContactUs() {
                 href="tel:+1234567890"
                 className="text-blue-400 hover:text-blue-300 text-base sm:text-lg transition-colors duration-200"
               >
-                +1 (234) 567-890
+                7008717365 / 8847834048
               </a>
             </div>
             {/* Email Us Column shifted right and styled */}
@@ -151,10 +147,10 @@ export default function ContactUs() {
                 Email Us
               </h3>
               <a
-                href="mailto:support@example.com"
+                href="mailto:purushotam.apstronics@gmail.com"
                 className="text-blue-400 hover:text-blue-300 text-base sm:text-lg transition-colors duration-200"
               >
-                support@example.com
+               purushotam.apstronics@gmail.com
               </a>
             </div>
           </div>
