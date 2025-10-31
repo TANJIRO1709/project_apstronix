@@ -217,7 +217,7 @@ const FlagEvent = () => {
     ));
 
   return (
-    <div className="bg-gradient-to-br from-black via-gray-900 to-black min-h-screen">
+    <div id="components" className="bg-gradient-to-br from-black via-gray-900 to-black min-h-screen">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         {/* Title */}

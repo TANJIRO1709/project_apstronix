@@ -16,7 +16,7 @@ const navItems = [
   { label: "ABOUT US", path: "#About" },
   { label: "CAREER", path: "/career" },
   { label: "CONTACT US", path: "/contact" },
-  { label: "COMPONENTS", path: "/components" },
+  { label: "COMPONENTS", path: "#components" },
   { label: "SHOP", path: "/shop" },
 ];
 
@@ -48,8 +48,8 @@ const Navbar: React.FC = () => {
         >
           {/* Logo / Home link (place logo at public/logo.png or update the src) */}
           <Link href="/" className="flex items-center gap-3 hoverable text-white">
-            <img src="/Hero_Assets/Logo.png" alt="Logo" className="h-7 w-auto sm:h-8" />
-            <span className="sr-only">Home</span>
+            <img src="https://res.cloudinary.com/dpzac6uao/image/upload/e_background_removal/f_png/v1761857515/PHOTO-2025-10-31-02-21-45_soevap.jpg" alt="Logo" className="h-16 w-auto sm:h-16" />
+            <span className="sr-only"></span>
           </Link>
           {/* Desktop Nav */}
           <div className="hidden md:flex flex-1 justify-around items-center gap-4 md:gap-6 px-2 md:px-6">
