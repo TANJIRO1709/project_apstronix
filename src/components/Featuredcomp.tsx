@@ -6,10 +6,20 @@ import Link from "next/link";
 import { SwiperSlide } from "swiper/react";
 import { events } from "@/config/mainEvents/mainEvents";
 import { SwiperCarousel } from "@/components/Carousel/Carousel";
+import { Poppins, Space_Grotesk } from "next/font/google";
 
-// Local font placeholders
-const neue = { className: "font-neue" };
-const spaceGrotesk = { className: "font-space-grotesk" };
+// === Fonts ===
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-poppins",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-space-grotesk",
+});
 
 type EventType = typeof events[number];
 
@@ -46,7 +56,7 @@ const EventDetails = ({
   currentIndex: number;
 }) => (
   <>
-    {/* Desktop */}
+    {/* === Desktop === */}
     <div className="hidden lg:block">
       <motion.div
         key={`details-${currentIndex}`}
@@ -57,7 +67,7 @@ const EventDetails = ({
       >
         <div className="flex-1">
           <h2
-            className={`text-white text-center ${neue.className} text-6xl font-bold uppercase mb-8 tracking-wider`}
+            className={`text-white text-center ${poppins.className} text-6xl font-bold uppercase mb-8 tracking-wider`}
           >
             {event.name}
           </h2>
@@ -88,7 +98,7 @@ const EventDetails = ({
       </motion.div>
     </div>
 
-    {/* Tablet */}
+    {/* === Tablet === */}
     <div className="hidden sm:block lg:hidden">
       <motion.div
         key={`details-tablet-${currentIndex}`}
@@ -99,7 +109,7 @@ const EventDetails = ({
       >
         <div className="flex-1">
           <h2
-            className={`text-white text-center ${neue.className} text-4xl font-bold uppercase mb-6 tracking-wider`}
+            className={`text-white text-center ${poppins.className} text-4xl font-bold uppercase mb-6 tracking-wider`}
           >
             {event.name}
           </h2>
@@ -130,7 +140,7 @@ const EventDetails = ({
       </motion.div>
     </div>
 
-    {/* Mobile */}
+    {/* === Mobile === */}
     <div className="sm:hidden">
       <motion.div
         key={`details-mobile-${currentIndex}`}
@@ -152,7 +162,7 @@ const EventDetails = ({
 
         <div className="w-full max-w-[280px] text-center space-y-3">
           <h2
-            className={`text-white ${neue.className} text-2xl font-bold uppercase tracking-wide`}
+            className={`text-white ${poppins.className} text-2xl font-bold uppercase tracking-wide`}
           >
             {event.name}
           </h2>
@@ -186,7 +196,7 @@ const FlagEvent = () => {
 
   return (
     <div id="components" className="bg-gradient-to-br from-black via-gray-900 to-black min-h-screen">
-      {/* Hero Section */}
+      {/* === Hero Section === */}
       <div className="relative overflow-hidden">
         <motion.div
           className="my-16 flex justify-center items-center relative z-10"
@@ -195,13 +205,13 @@ const FlagEvent = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className={`text-white px-5 ${neue.className} font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal`}
+            className={`text-white px-5 ${poppins.className} font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal`}
           >
             FEATURED COMPONENTS
           </motion.h1>
         </motion.div>
 
-        {/* Carousel */}
+        {/* === Carousel === */}
         <div className="relative px-4 mb-10 lg:mb-20 z-10">
           <SwiperCarousel
             mapFunction={renderSlides}
@@ -213,7 +223,7 @@ const FlagEvent = () => {
         </div>
       </div>
 
-      {/* Event Details */}
+      {/* === Event Details === */}
       <div className="relative overflow-visible pt-2 pb-24">
         <EventDetails event={events[currentIndex]} currentIndex={currentIndex} />
       </div>
