@@ -22,7 +22,7 @@ body {
   min-height: 100vh;
 
   /* This replicates Tailwind's bg-gradient-to-br from-black via-gray-900 to-black */
-  background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
+  
   color: #fff; /* Optional: ensures text is white everywhere */
 }
 
