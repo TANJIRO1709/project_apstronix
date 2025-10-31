@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { SwiperSlide } from "swiper/react";
 import { events } from "@/config/mainEvents/mainEvents";
-import RulebookButton from "@/components/ui/RulebookButton";
 import { SwiperCarousel } from "@/components/Carousel/Carousel";
 
 // Local font placeholders
@@ -33,12 +32,7 @@ const EventCard = ({
       }}
     >
       <div className="relative w-full h-full rounded-[40px] overflow-hidden">
-        <Image
-          src={event.image}
-          alt={event.name}
-          fill
-          className="object-cover"
-        />
+        <Image src={event.image} alt={event.name} fill className="object-cover" />
       </div>
     </motion.div>
   </motion.div>
@@ -73,13 +67,6 @@ const EventDetails = ({
             >
               {event.description}
             </p>
-          )}
-          {!event.rulebook.includes("example.com") && (
-            <Link href={event.rulebook}>
-              <div className="mt-8 flex justify-center">
-                <RulebookButton size="md" variant="primary" />
-              </div>
-            </Link>
           )}
         </div>
 
@@ -123,13 +110,6 @@ const EventDetails = ({
               {event.description}
             </p>
           )}
-          {!event.rulebook.includes("example.com") && (
-            <Link href={event.rulebook}>
-              <div className="mt-8 flex justify-center">
-                <RulebookButton size="md" variant="primary" />
-              </div>
-            </Link>
-          )}
         </div>
 
         <motion.div
@@ -166,12 +146,7 @@ const EventDetails = ({
           }}
         >
           <div className="relative w-full h-full rounded-2xl overflow-hidden bg-black/20 backdrop-blur-sm">
-            <Image
-              src={event.image}
-              alt={event.name}
-              fill
-              className="object-cover"
-            />
+            <Image src={event.image} alt={event.name} fill className="object-cover" />
           </div>
         </motion.div>
 
@@ -188,13 +163,6 @@ const EventDetails = ({
             >
               {event.description}
             </p>
-          )}
-          {!event.rulebook.includes("example.com") && (
-            <Link href={event.rulebook}>
-              <div className="mt-8 flex justify-center">
-                <RulebookButton size="md" variant="primary" />
-              </div>
-            </Link>
           )}
         </div>
       </motion.div>
@@ -220,7 +188,6 @@ const FlagEvent = () => {
     <div id="components" className="bg-gradient-to-br from-black via-gray-900 to-black min-h-screen">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        {/* Title */}
         <motion.div
           className="my-16 flex justify-center items-center relative z-10"
           initial={{ opacity: 0, y: -50 }}
@@ -229,7 +196,6 @@ const FlagEvent = () => {
         >
           <motion.h1
             className={`text-white px-5 ${neue.className} font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal`}
-           
           >
             FEATURED COMPONENTS
           </motion.h1>
