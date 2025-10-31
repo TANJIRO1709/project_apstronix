@@ -46,7 +46,7 @@ export default function ContactUs() {
       {/* === Contact Form Section === */}
       <div className="flex-grow py-10 px-4 sm:py-12 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-center mb-10">
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-center mb-10 pt-14">
             Contact Us
           </h1>
 
@@ -127,14 +127,7 @@ export default function ContactUs() {
             <p className="text-gray-400 mb-3 text-base sm:text-lg">
               The best way to reach us is through our support channel.
             </p>
-            <a
-              href="https://support.example.com/submit-ticket"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:text-blue-300 underline text-base sm:text-lg"
-            >
-              Submit a Support Ticket →
-            </a>
+            
           </div>
         </div>
       </div>

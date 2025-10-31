@@ -34,7 +34,7 @@ export default function Careers() {
   return (
     <div className="flex-grow py-10 px-2 sm:py-12 sm:px-6 lg:px-8">
       <div className="max-w-4xl h-120 sm:h-[550px] lg:h-[700px] mx-auto">
-        <h1 className="pt-12 sm:pt-16 text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 transition-all duration-500 hover:text-blue-400 hover:scale-110">
+        <h1 className="pt-14 sm:pt-16 text-4xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 transition-all duration-500 hover:text-blue-400 hover:scale-110 ">
           HIRING
         </h1>
         <h2 className="text-xl sm:text-2xl font-semibold text-center mb-8 sm:mb-12 text-gray-300">
