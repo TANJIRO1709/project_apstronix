@@ -205,7 +205,7 @@ const FlagEvent = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className={`text-white px-5 ${poppins.className} font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[80px] leading-normal`}
+            className={`text-white px-5 ${poppins.className} font-semibold text-center uppercase text-[28px] sm:text-[35px] md:text-[60px] leading-normal`}
           >
             FEATURED COMPONENTS
           </motion.h1>
